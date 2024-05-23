@@ -1,0 +1,128 @@
+{
+  "name": "aliyunpan_signin",
+  "title": "阿里云盘签到",
+  "author": "NaNaKo_",
+  "description": "阿里云盘签到。",
+  "version": "0.6",
+  "requirements": [],
+  "configField": [
+    {
+      "fieldName": "uid",
+      "fieldType": "Enum",
+      "label": "推送用户",
+      "helperText": "选择接收推送的用户,用户管理要独立设置推送配置才生效",
+      "enumValuesRef": "UserList",
+      "multiValue": true
+    },
+    {
+      "fieldName": "channel_item",
+      "fieldType": "Enum",
+      "label": "推送通道名称",
+      "helperText": "选择想要推送的通道,逗号间隔",
+      "enumValuesRef": "ChannelNameList",
+      "multiValue": true
+    },
+    {
+      "fieldName": "refreshToken",
+      "fieldType": "String",
+      "label": "阿里云refreshToken",
+      "helperText": "阿里云盘的refreshToken，多个请用英文逗号隔开。",
+      "defaultValue": ""
+    },
+    {
+      "fieldName": "sign_task",
+      "fieldType": "Bool",
+      "label": "签到任务使能",
+      "helperText": "",
+      "defaultValue": true
+    },
+    {
+      "fieldName": "reward_enable",
+      "fieldType": "Bool",
+      "label": "每日签到后是否自动领奖。关闭后会在月底最后一天自动领取所有奖励。",
+      "helperText": "",
+      "defaultValue": false
+    },
+    {
+      "fieldName": "xiaoya_task",
+      "fieldType": "Bool",
+      "label": "小雅清理任务",
+      "helperText": "清理小雅转存文件夹",
+      "defaultValue": false
+    },
+    {
+      "fieldName": "xiaoya_conf",
+      "fieldType": "String",
+      "label": "小雅配置",
+      "helperText": "格式为refreshToken:folder_id。不支持多个。",
+      "defaultValue": ""
+    },
+    {
+      "fieldName": "portainer_url",
+      "fieldType": "String",
+      "label": "Portainer 地址",
+      "helperText": "",
+      "defaultValue": ""
+    },
+    {
+      "fieldName": "portainer_access_token",
+      "fieldType": "String",
+      "label": "Portainer 的 access_token",
+      "helperText": "",
+      "defaultValue": ""
+    },
+    {
+      "fieldName": "env",
+      "fieldType": "String",
+      "label": "env，默认为2",
+      "helperText": "",
+      "defaultValue": "2"
+    },
+    {
+      "fieldName": "xy_name",
+      "fieldType": "String",
+      "label": "小雅 Docker 容器名称，默认为 xiaoya",
+      "helperText": "",
+      "defaultValue": "xiaoya"
+    },
+    {
+      "fieldName": "xy_diy",
+      "fieldType": "Bool",
+      "label": "开启小雅美化，开启后，下方设置生效。",
+      "helperText": "",
+      "defaultValue": false
+    },
+    {
+      "fieldName": "db_path",
+      "fieldType": "String",
+      "label": "小雅 data.db 文件路径，末尾不带/",
+      "helperText": "示例：/appdata/xiaoya/data.db, 注意：data.db 文件需要映射到 Mbot 容器",
+      "defaultValue": ""
+    },
+    {
+      "fieldName": "new_head_value",
+      "fieldType": "String",
+      "label": "自定义小雅头部",
+      "helperText": "",
+      "defaultValue": ""
+    },
+    {
+      "fieldName": "new_body_value",
+      "fieldType": "String",
+      "label": "自定义小雅内容",
+      "helperText": "",
+      "defaultValue": ""
+    },
+    {
+      "fieldName": "new_readme",
+      "fieldType": "String",
+      "label": "小雅首页 ReadME 介绍",
+      "helperText": "",
+      "defaultValue": ""
+    }
+  ],
+  "githubUrl": "",
+  "helpDocUrl": "https://github.com/htnanako/MovieBot_plugins/tree/main/aliyunpan_signin",
+  "logoUrl": "/plugins/aliyunpan_signin/logo.jpg",
+  "payImageUrl": "https://p.xmoviebot.com/donate/chacha_wechat.jpg"
+}
