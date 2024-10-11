@@ -1,0 +1,77 @@
+timestamp: 1722498922.1710405
+
+_extend=_buf.extend;_to_str=to_str;_escape=to_escaped; import helper
+_extend(('''\r
+local creat_role = {\r\n''', ));
+for data in creat_role:
+    _extend(('''    [''', _escape(data['id']), '''] = {\r
+        id = ''', _escape(data['id']), ''',\r
+        reward = ''', _escape(helper.lua_split_items(str(data['reward']))), ''',\r
+        coin_reward = {''', _escape(data['coin_reward']), '''},\r
+        reward1_extra_desc = ''', _escape(as_escaped(helper.client_language(data['reward1_extra_desc']))), ''',\r
+        reward2_extra_desc = ''', _escape(as_escaped(helper.client_language(data['reward2_extra_desc']))), ''',\r
+    },\r\n''', ));
+#endfor
+_extend(('''}\r
+\r
+local creat_speak = {\r\n''', ));
+for data in creat_speak:
+    _extend(('''    [''', _escape(data['id']), '''] = {\r
+        id = ''', _escape(data['id']), ''',\r
+        type = ''', _escape(data['type']), ''',\r
+        steep = ''', _escape(data['steep'] if data['steep'] != '' else 0), ''' ,\r
+        player = ''', _escape(data['player'] if data['player'] != '' else 0), ''' ,\r
+        painting = "''', _escape(data['painting']), '''",\r
+        picture = "''', _escape(data['picture']), '''",\r
+        role_type = ''', _escape(as_escaped(helper.client_language(data['role_type']))), ''',\r
+        desc = ''', _escape(as_escaped(helper.client_language(data['desc']))), ''',\r
+    },\r\n''', ));
+#endfor
+_extend(('''}\r
+\r
+local story_int = {\r\n''', ));
+for data in story_int:
+    _extend(('''    [''', _escape(data['id']), '''] = {\r
+        id = ''', _escape(data['id']), ''',\r
+        season = ''', _escape(data['season']), ''',\r
+        pic = \'''', _escape(data['pic']), '''\',\r
+        desc = ''', _escape(as_escaped(helper.client_language(data['desc']))), ''',\r
+    },\r\n''', ));
+#endfor
+_extend(('''}\r
+\r
+local creat_regional = {\r\n''', ));
+for data in creat_regional:
+    _extend(('''    [''', _escape(data['id']), '''] = {\r
+        id = ''', _escape(data['id']), ''',\r
+        minIcon = \'''', _escape(data['minIcon']), '''\',\r
+        selectPos = {''', _escape(data['selectPos']), '''},\r
+        name = ''', _escape(as_escaped(helper.client_language(data['name']))), ''',\r
+        characteristic = ''', _escape(as_escaped(helper.client_language(data['characteristic']))), ''',\r
+        attr = ''', _escape(helper.lua_split_items(str(data['attr']))), ''',\r
+        desc = ''', _escape(as_escaped(helper.client_language(data['desc']))), ''',\r
+    },\r\n''', ));
+#endfor
+_extend(('''}\r
+\r
+local creat_role_icon = {\r\n''', ));
+for data in creat_role_icon:
+    _extend(('''    [''', _escape(data['id']), '''] = {\r
+        id = ''', _escape(data['id']), ''',\r
+        gender = ''', _escape(data['gender']), ''',\r
+        painting = "''', _escape(data['painting']), '''",\r
+        head_1 = "''', _escape(data['head_1']), '''",\r
+        head_2 = "''', _escape(data['head_2']), '''",\r
+        head_3 = "''', _escape(data['head_3']), '''",\r
+		picture = "''', _escape(data['picture']), '''",\r
+    },\r\n''', ));
+#endfor
+_extend(('''}\r
+\r
+return {\r
+    creat_role = creat_role,\r
+    story_int = story_int,\r
+    creat_speak = creat_speak,\r
+    creat_regional = creat_regional,   \r
+    creat_role_icon = creat_role_icon,   \r
+}''', ));

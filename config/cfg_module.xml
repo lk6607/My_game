@@ -1,0 +1,1621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 所有需要生成配置文件的配置 -->
+<!-- excle配置文件与工具目录在同一个目录 -->
+<!-- 注意dict元素的data_key属性值不能一样 -->
+<!--
+root节点增加seasons属性，表示要生成多少个赛季的配置
+tpl文件可以通过获取__season变化得到当前赛季
+<file excle_file=数据来源Excel>
+	<export tpl=服务端配置模板名称 type=s为后端文件c为前端文件>
+		<dict data_key=数据key sheet=数量来源sheet页 begin_row=从哪一行开始读数据(从0开始计数) sort_col=列名，对哪一列进行倒叙排序 season_sheet='true'表示赛季数据从赛季sheet中读取，按赛季分表的sheet命令就是原sheet加上_1,_2这种></dict>
+	</export>
+</file>
+ -->
+<root seasons='3'>
+    <file excle_file='X信息提示表.xls'>
+        <export tpl='data_tips.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='configTips' begin_row='2'></dict>
+        </export>
+        <export tpl='configTips.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='configTips' begin_row='2'></dict>
+        </export>
+        <export tpl='configBeginnerProtect.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='BeginnerProtect' begin_row='2'></dict>
+        </export>
+        <export tpl='configNewFunctionOpen.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='FunctionOpen' begin_row='2'></dict>
+        </export>
+        <export tpl='configCaptureTips.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='俘虏说明' begin_row='2'></dict>
+        </export>
+        <export tpl='configCommandPrompt.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='CommandPrompt' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='C常量表.xls'>
+        <export tpl='data_const.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='config' begin_row='2'></dict>
+            <dict data_key='all_data2' sheet='random_event' begin_row='2'></dict>
+			<dict data_key='all_data3' sheet='civi' begin_row='2'></dict>
+            <dict data_key='all_season_data' sheet='season' begin_row='3'></dict>
+        </export>
+        <export tpl='configConst.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='config' begin_row='2'></dict>
+            <dict data_key='all_data2' sheet='random_event' begin_row='2'></dict>
+			<dict data_key='all_data3' sheet='civi' begin_row='2'></dict>
+        </export>
+        <export tpl='configSeasonConst.lua.tpl' type='c'>
+            <dict data_key='all_season_data' sheet='season' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='C_充值返还_百宝变利发放表.xlsx'>
+        <export tpl='data_charge_refund.lua.tpl' type='s'>
+            <dict data_key='charge_total' sheet='charge_total' begin_row='3'></dict>
+        </export>
+    </file>
+	
+	<file excle_file='C_充值返利_寻找新大陆.xlsx'>
+        <export tpl='configSearchWorld.lua.tpl' type='c'>
+            <dict data_key='search_world_data' sheet='search_new_world' begin_row='3'></dict>
+			<dict data_key='common_data' sheet='common' begin_row='3'></dict>
+        </export>
+		<export tpl='data_search_world.lua.tpl' type='s'>
+            <dict data_key='search_world_data' sheet='search_new_world' begin_row='3'></dict>
+			<dict data_key='search_world_common_data' sheet='common' begin_row='3'></dict>
+        </export>
+    </file>
+	
+	<file excle_file='J-经验追赶.xlsx'>
+        <export tpl='data_exp_catching.lua.tpl' type='s'>
+            <dict data_key='exp_catching' sheet='exp_catching' begin_row='3'></dict>
+        </export>
+		<export tpl='configExpCatching.lua.tpl' type='c'>
+            <dict data_key='exp_catching' sheet='exp_catching' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='W_武将配置表_role_basic_information.xlsx'>
+        <export tpl='data_hero.lua.tpl' type='s'>
+            <dict data_key='all_data_hero_base' sheet='role_basic_information' begin_row='3'></dict>
+            <dict data_key='all_data_level_base' sheet='role_level' begin_row='3'></dict>
+            <dict data_key='all_data_fetter_base' sheet='role_fetters' begin_row='3'></dict>
+            <dict data_key='all_data_common_base' sheet='武将通用配置' begin_row='3'></dict>
+            <dict data_key='hero_reommend_base' sheet='hero_reommend' begin_row='3'></dict>
+            <dict data_key='hero_special_type' sheet='hero_special_type' begin_row='3'></dict> 
+            <dict data_key='lineup_recommend' sheet='lineup_recommend' begin_row='3'></dict>
+            <dict data_key='hero_exchange' sheet='hero_exchange' begin_row='3'></dict>
+			<dict data_key='hero_promote' sheet='hero_promote' begin_row='3'></dict>
+        </export>
+        <export tpl='configRole.lua.tpl' type='c'>
+            <dict data_key='all_data_hero_base' sheet='role_basic_information' begin_row='3'></dict>
+            <dict data_key='all_data_desc' sheet='role_desc' begin_row='3'></dict>
+            <dict data_key='all_data_level_base' sheet='role_level' begin_row='3'></dict>
+            <dict data_key='all_data_fetter_base' sheet='role_fetters' begin_row='3'></dict>
+            <dict data_key='all_data_common_base' sheet='武将通用配置' begin_row='3'></dict>
+            <dict data_key='all_role_language' sheet='role_language' begin_row='3'></dict>
+            <dict data_key='all_reommend' sheet='hero_reommend' begin_row='3'></dict>
+            <dict data_key='hero_special_type' sheet='hero_special_type' begin_row='3'></dict>
+            <dict data_key='all_lineup_recommend' sheet='lineup_recommend' begin_row='3'></dict>
+            <dict data_key='hero_exchange' sheet='hero_exchange' begin_row='3'></dict>
+			<dict data_key='hero_promote' sheet='hero_promote' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_武将标签表.xlsx'>
+        <export tpl='data_hero_comment.lua.tpl' type='s'>
+            <dict data_key='hero_comment' sheet='hero_comment' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='J_技能表_skill.xlsx'>
+        <export tpl='data_skill.lua.tpl' type='s'>
+            <dict data_key='all_data_skill' sheet='skill' begin_row='3'></dict>
+        </export>
+        <export tpl='configSkill.lua.tpl' type='c'>
+            <dict data_key='all_data_skill' sheet='skill' begin_row='3'></dict>
+        </export>
+        <export tpl='configSkillAdd.lua.tpl' type='c'>
+            <dict data_key='effect_type' sheet='effect_type' begin_row='3'></dict>
+        </export>
+        <export tpl='data_skill_stage.lua.tpl' type='s'>
+            <dict data_key='all_skill_stage' sheet='skill_stage' begin_row='3'></dict>
+        </export>
+        <export tpl='data_buff.lua.tpl' type='s'>
+            <dict data_key='all_buff' sheet='buff' begin_row='3'></dict>
+        </export>
+        <export tpl='configBuff.lua.tpl' type='c'>
+            <dict data_key='all_buff' sheet='buff' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='J_技能表_skill.xlsx'>
+        <export tpl='data_senate_skill.lua.tpl' type='s'>
+            <dict data_key='all_data_skill' sheet='skill' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='T_特效表.xlsx'>
+        <export tpl='configEffect.lua.tpl' type='c'>
+            <dict data_key='all_Effect' sheet='effect' begin_row='3'></dict>
+            <dict data_key='all_Replay' sheet='replay' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='C_城建_city_build.xlsx'>
+        <export tpl='data_build.lua.tpl' type='s'>
+            <dict data_key='config_build1' sheet='config_build' begin_row='3'></dict>
+            <dict data_key='config_build_level' sheet='ConfigBuildLevel' begin_row='3'></dict>
+			<dict data_key='build_science' sheet='ConfigScience' begin_row='3'></dict>
+			<dict data_key='build_science_level' sheet='ConfigScienceLevel' begin_row='3'></dict>
+        </export>
+        <export tpl='configCityBuild.lua.tpl' type='c'>
+            <dict data_key='config_build' sheet='config_build' begin_row='3'></dict>
+            <dict data_key='config_build_level' sheet='ConfigBuildLevel' begin_row='3'></dict>
+			<dict data_key='config_science' sheet='ConfigScience' begin_row='3'></dict>
+			<dict data_key='config_science_level' sheet='ConfigScienceLevel' begin_row='3'></dict>
+			<dict data_key='config_build_style' sheet='build_style' begin_row='3'></dict>
+        </export>
+        <export tpl='configCityBuildEnum.lua.tpl' type='c'>
+            <dict data_key='config_build' sheet='config_build' begin_row='3'></dict>
+        </export>
+		<export tpl='configScienceEnum.lua.tpl' type='c'>
+            <dict data_key='config_science' sheet='ConfigScience' begin_row='3'></dict>
+        </export>
+		<export tpl='configInnerCityStyle.lua.tpl' type='c'>
+            <dict data_key='build_style' sheet='build_style' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='C_外放城建_out_build.xlsx'>
+        <export tpl='data_outside_city.lua.tpl' type='s'>
+            <dict data_key='config_build' sheet='config_out_build' begin_row='3'></dict>
+            <dict data_key='config_build_level' sheet='ConfigOutBuildLevel' begin_row='3'></dict>
+			<dict data_key='build_team' sheet='build_team_list' begin_row='3'></dict>
+        </export>
+        <export tpl='configOutCityBuild.lua.tpl' type='c'>
+            <dict data_key='config_out_build' sheet='config_out_build' begin_row='3'></dict>
+            <dict data_key='ConfigOutBuildLevel' sheet='ConfigOutBuildLevel' begin_row='3'></dict>
+			<dict data_key='build_team_list' sheet='build_team_list' begin_row='3'></dict>
+        </export>
+        <export tpl='configOutCityBuildEnum.lua.tpl' type='c'>
+            <dict data_key='config_build1' sheet='config_out_build' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_王权.xlsx'>
+        <export tpl='configKingship.lua.tpl' type='c'>
+            <dict data_key='config_kingship_base' sheet='kingship_base' begin_row='3'></dict>
+            <dict data_key='config_kingship_close' sheet='kingship_close' begin_row='3'></dict>
+        </export>
+    </file>
+  <file excle_file='X-新手期面板.xlsx'>
+        <export tpl='configGuidePeriod.lua.tpl' type='c'>
+            <dict data_key='stage_switch_info' sheet='stage_switch_info' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='G-个人主页.xlsx'>
+        <export tpl='configPersonHomePage.lua.tpl' type='c'>
+            <dict data_key='config_homepage_radar' sheet='homepage_radar' begin_row='3'></dict>
+        </export>
+        <export tpl='data_homepage.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='homepage_radar' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='D_地块信息_massif_information.xlsx'>
+        <export tpl='data_massif_info.lua.tpl' type='s'>
+            <dict data_key='all_massif_info' sheet='massif_information' begin_row='3'></dict>
+            <dict data_key='all_massif_monster' sheet='massif_monster' begin_row='3'></dict>
+        </export>
+        <export tpl='data_cell_first_reward.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='massif_first_reward' begin_row='3'></dict>
+        </export>
+        <export tpl='data_inner_city_cell.lua.tpl' type='s'>
+            <dict data_key='inner_cell_list' sheet='innercity_land' begin_row='3'></dict>
+            <dict data_key='inner_cell_info' sheet='innercity_massif' begin_row='3'></dict>
+            <dict data_key='inner_cell_monster' sheet='innercity_monster' begin_row='3'></dict>
+        </export>
+        <export tpl='configMassifInfo.lua.tpl' type='c'>
+            <dict data_key='all_massif_info' sheet='massif_information' begin_row='3'></dict>
+        </export>
+		<export tpl='configInnerCityCell.lua.tpl' type='c'>
+			<dict data_key='innercity_land' sheet='innercity_land' begin_row='3'></dict>
+			<dict data_key='innercity_massif' sheet='innercity_massif' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='D_地块信息_massif_information.xlsx'>
+        <export tpl='configHint.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='hint' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_玩家属性表_date_player_attr.xlsx'>
+        <export tpl='data_player_attr.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='enum_player_attr' begin_row='2'></dict>
+        </export>
+        <export tpl='data_player_attr_client.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='enum_player_attr' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='W_外部城池_outside_city.xlsx'>
+        <export tpl='data_fixed_building.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='fixed_city' begin_row='3'></dict>
+            <dict data_key='all_level' sheet='city_leve' begin_row='3'></dict>
+			<dict data_key='all_reward' sheet='city_reward' begin_row='3'></dict>
+        </export>
+        <export tpl='data_fixed_building_key.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='fixed_city' begin_row='3'></dict>
+        </export>
+        <export tpl='data_fixed_building_type.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='fixed_city' begin_row='3'></dict>
+        </export>
+        <export tpl='configFixedBuild.lua.tpl' type='c'>
+            <dict data_key='fixed_build' sheet='fixed_city' begin_row='3'></dict>
+            <dict data_key='all_level' sheet='city_leve' begin_row='3'></dict>
+			<dict data_key='all_reward' sheet='city_reward' begin_row='3'></dict>
+        </export>
+		<export tpl='configMinMapShowIcon.lua.tpl' type='c'>
+            <dict data_key='min_map_show' sheet='min_map_show' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_外部建筑_outside_build.xlsx'>
+        <export tpl='configLegendMinimap.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='legend_minimap' begin_row='3'></dict>
+        </export>
+        <export tpl='data_building_power.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='building_power' begin_row='3'></dict>
+        </export>
+        <export tpl='data_outside_building.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='dynamic_build' begin_row='3'></dict>
+        </export>
+        <export tpl='data_building_type.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='type' begin_row='3'></dict>
+        </export>
+        <export tpl='configOutsideBuild.lua.tpl' type='c'>
+            <dict data_key='dynamic_build' sheet='dynamic_build' begin_row='3'></dict>
+            <dict data_key='building_power' sheet='building_power' begin_row='3'></dict>
+            <dict data_key='type_data' sheet='type' begin_row='3'></dict>
+            <dict data_key='type_active' sheet='type_active' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='T_推荐兵力_arm_recommend.xlsx'>
+        <export tpl='configArmRecommend.lua.tpl' type='c'>
+            <dict data_key='all_data1' sheet='品质系数' begin_row='3'></dict>
+            <dict data_key='all_data2' sheet='技能等级系数' begin_row='3'></dict>
+            <dict data_key='all_data3' sheet='推荐战力常量' begin_row='3'></dict>
+            <dict data_key='all_data4' sheet='地块默认战力' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Z_招募表_recruit.xlsx'>
+        <export tpl='data_recruit.lua.tpl' type='s'>
+            <dict data_key='pool_data' sheet='record_data' begin_row='3'></dict>
+            <dict data_key='all_type_data' sheet='recruit_type_data' begin_row='3'></dict>
+            <dict data_key='recruit_data' sheet='pool_list' begin_row='3' season_sheet='true'></dict>
+            <dict data_key='recruit_common' sheet='pool_list_common' begin_row='3'></dict>
+            <dict data_key='common_data' sheet='recruit_common_base' begin_row='3'></dict>
+            <dict data_key='free_pack_data' sheet='free_pack_bag' begin_row='3'></dict>
+        </export>
+        <export tpl='configRecruit.lua.tpl' type='c'>
+            <dict data_key='pool_data' sheet='record_data' begin_row='3'></dict>
+            <dict data_key='all_type_data' sheet='recruit_type_data' begin_row='3'></dict>
+            <dict data_key='recruit_data' sheet='pool_list' begin_row='3' season_sheet='true'></dict>
+            <dict data_key='recruit_common' sheet='pool_list_common' begin_row='3'></dict>
+            <dict data_key='record_hero_data' sheet='record_hero_data' begin_row='3'></dict>
+            <dict data_key='common_data' sheet='recruit_common_base' begin_row='3'></dict>
+			
+        </export>
+    </file>
+    <file excle_file='D_道具_product.xlsx'>
+        <export tpl='data_item_base.lua.tpl' type='s'>
+            <dict data_key='all_item_data' sheet='product' begin_row='3'></dict>
+            <dict data_key='all_equip_attr' sheet='equip_attr' begin_row='3'></dict>
+            <dict data_key='all_equip_skill' sheet='equip_skill' begin_row='3'></dict>
+            <dict data_key='all_suit' sheet='produce_suit' begin_row='3'></dict>
+			<dict data_key='all_reforge' sheet='equip_reforge' begin_row='3'></dict>
+			<dict data_key='all_cons' sheet='equip_cons' begin_row='2'></dict>
+			<dict data_key='all_salvage' sheet='equip_salvage' begin_row='3'></dict>
+			
+        </export>
+        <export tpl='data_item_base_client.lua.tpl' type='c'>
+            <dict data_key='all_item_data' sheet='product' begin_row='3'></dict>
+            <dict data_key='all_equip_attr' sheet='equip_attr' begin_row='3'></dict>
+            <dict data_key='all_equip_skill' sheet='equip_skill' begin_row='3'></dict>
+            <dict data_key='all_suit' sheet='produce_suit' begin_row='3'></dict>
+			<dict data_key='all_salvage' sheet='equip_salvage' begin_row='3'></dict>
+			<dict data_key='all_cons' sheet='equip_cons' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='D_道具_product.xlsx'>
+        <export tpl='data_item_senate.lua.tpl' type='s'>
+            <dict data_key='all_item_data' sheet='product' begin_row='3'></dict>
+            <dict data_key='all_suit' sheet='produce_suit' begin_row='3'></dict>
+            <dict data_key="all_equip_skill" sheet="equip_skill" begin_row="3"/>
+        </export>
+    </file>
+    <file excle_file='G_怪物表_monster.xlsx'>
+        <export tpl='data_monster.lua.tpl' type='s'>
+            <dict data_key='monster_library' sheet='monster_library' begin_row='3'></dict>
+            <dict data_key='monster' sheet='monster' begin_row='3'></dict>
+			<refs excle='W_武将配置表_role_basic_information.xlsx' data_key='ref_data' sheet='role_basic_information' begin_row='3'></refs>
+        </export>
+        <export tpl='configMonster.lua.tpl' type='c'>
+            <dict data_key='monster_library' sheet='monster_library' begin_row='3'></dict>
+            <dict data_key='monster' sheet='monster' begin_row='3'></dict>
+			<refs excle='W_武将配置表_role_basic_information.xlsx' data_key='ref_data' sheet='role_basic_information' begin_row='3'></refs>
+        </export>
+    </file>
+    <file excle_file='B_兵种配置表_arm_type.xlsx'>
+        <export tpl='data_army_type.lua.tpl' type='s'>
+            <dict data_key='data_army_type' sheet='arm_type' begin_row='3'></dict>
+        </export>
+        <export tpl='configArmy.lua.tpl' type='c'>
+            <dict data_key='all_Army' sheet='arm_type' begin_row='3'></dict>
+        </export>
+        <export tpl='configModel.lua.tpl' type='c'>
+            <dict data_key='all_model' sheet='model' begin_row='3'></dict>
+            <dict data_key='all_skillShow' sheet='skillShow' begin_row='3'></dict>
+            <dict data_key='all_skillEffect' sheet='skillEffect' begin_row='3'></dict>
+            <dict data_key='all_occupyAni' sheet='occupyAni' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='S_随机事件_random_event.xlsx'>
+        <export tpl='data_map_robber.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='random_event' begin_row='3'></dict>
+        </export>
+        <export tpl='configRandomEvent.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='random_event' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='S_随机事件_random_event.xlsx'>
+        <export tpl='data_map_horse.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='random_event' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='S_随机事件_random_event.xlsx'>
+        <export tpl='data_map_manzu.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='random_event' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='D_掉落_drop.xlsx'>
+        <export tpl='data_drop.lua.tpl' type='s'>
+            <dict data_key='drop_all' sheet='drop' begin_row='3'></dict>
+            <dict data_key='drop_library_all' sheet='drop_library' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='S_商店表_store.xls'>
+        <export tpl='data_store.lua.tpl' type='s'>
+            <dict data_key='store_basic_all' sheet='store_basic' begin_row='3'></dict>
+            <dict data_key='store_all' sheet='store' begin_row='3'></dict>
+            <dict data_key='store_control_all' sheet='store_control' begin_row='3'></dict>
+        </export>
+        <export tpl='configStore.lua.tpl' type='c'>
+            <dict data_key='store_basic_all' sheet='store_basic' begin_row='3'></dict>
+            <dict data_key='store_all' sheet='store' begin_row='3'></dict>
+            <dict data_key='store_control_all' sheet='store_control' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='D_锻造_data_forge.xlsx'>
+        <export tpl='data_forge.lua.tpl' type='s'>
+            <dict data_key='data_forging_basic' sheet='data_forging_basic' begin_row='3'></dict>
+            <dict data_key='data_normal_output_rate' sheet='data_normal_output_rate' begin_row='3'></dict>
+            <dict data_key='data_forging_output_rate' sheet='data_forging_output_rate' begin_row='3'></dict>
+        </export>
+        <export tpl='configForge.lua.tpl' type='c'>
+            <dict data_key='data_forging_basic' sheet='data_forging_basic' begin_row='3'></dict>
+            <dict data_key='data_forging_output_rate' sheet='data_forging_output_rate' begin_row='3'></dict>
+            <dict data_key='data_normal_output_rate' sheet='data_normal_output_rate' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='X_驯马_data_horse.xlsx'>
+        <export tpl='data_horse.lua.tpl' type='s'>
+            <dict data_key='data_horse_basic' sheet='data_horse_basic' begin_row='3'></dict>
+            <dict data_key='data_horse_output_rate' sheet='data_horse_output_rate' begin_row='3'></dict>
+            <dict data_key='data_horse_event' sheet='data_horse_event' begin_row='3'></dict>
+        </export>
+        <export tpl='configHorse.lua.tpl' type='c'>
+            <dict data_key='data_horse_basic' sheet='data_horse_basic' begin_row='3'></dict>
+            <dict data_key='data_horse_output_rate' sheet='data_horse_output_rate' begin_row='3'></dict>
+            <dict data_key='data_horse_event' sheet='data_horse_event' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='G_GM命令_data_GM.xlsx'>
+        <export tpl='configGM.lua.tpl' type='c'>
+            <dict data_key='data_GM' sheet='data_GM' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='Z_战报表.xlsx'>
+        <export tpl='data_war_paper.lua.tpl' type='s'>
+            <dict data_key='all_war_paper' sheet='war_paper' begin_row='3'></dict>
+        </export>
+        <export tpl='configBattleLog.lua.tpl' type='c'>
+            <dict data_key='war_paper' sheet='war_paper' begin_row='3'></dict>
+            <dict data_key='event' sheet='event' begin_row='3'></dict>
+            <dict data_key='action_time' sheet='action_time' begin_row='3'></dict>
+            <dict data_key='buff_effect' sheet='buff_effect' begin_row='3'></dict>
+			<dict data_key='buff_type' sheet='buff_type' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_委任政官表.xlsx'>
+        <export tpl='configAdminOfferDesc.lua.tpl' type='c'>
+            <dict data_key='admin_offer_desc' sheet='admin_offer_desc' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='R_任务_task.xlsx'>
+        <export tpl='data_task.lua.tpl' type='s'>
+            <dict data_key='task_basic_all' sheet='task_basic' begin_row='3'></dict>
+            <dict data_key='task_all' sheet='task' begin_row='3'></dict>
+            <dict data_key='task_param' sheet='脚本说明' begin_row='2'></dict>
+        </export>
+        <export tpl='data_task_event_type.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='脚本说明' begin_row='2'></dict>
+        </export>
+        <export tpl='configTask.lua.tpl' type='c'>
+            <dict data_key='task_basic_all' sheet='task_basic' begin_row='3'></dict>
+            <dict data_key='task_all' sheet='task' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_五日活动.xlsx'>
+        <export tpl='configFiveTask.lua.tpl' type='c'>
+            <dict data_key='task_basic_all' sheet='collection_rask' begin_row='3'></dict>
+            <dict data_key='task_progress_reward' sheet='progress_reward' begin_row='3'></dict>
+        </export>
+
+        <export tpl='data_five_mission.lua.tpl' type='s'>
+            <dict data_key='task' sheet='collection_rask' begin_row='3'></dict>
+            <dict data_key='progress_reward' sheet='progress_reward' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='T_弹窗_popup.xlsx'>
+        <export tpl='configPopUpWindow.lua.tpl' type='c'>
+            <dict data_key='popup_base' sheet='popup_base' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='X_寻访_search.xlsx'>
+        <export tpl='data_search.lua.tpl' type='s'>
+            <dict data_key='data_search_basic' sheet='search_basic' begin_row='3'></dict>
+            <dict data_key='data_search_event' sheet='search_event' begin_row='3'></dict>
+            <dict data_key='data_search_const' sheet='search_const' begin_row='3'></dict>
+            <dict data_key='data_search_show' sheet='search_show' begin_row='3'></dict>
+        </export>
+        <export tpl='configSearch.lua.tpl' type='c'>
+            <dict data_key='search_show' sheet='search_show' begin_row='3'></dict>
+            <dict data_key='search_const' sheet='search_const' begin_row='3'></dict>
+            <dict data_key='data_search_event' sheet='search_event' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='S_试练_practice.xlsx'>
+        <export tpl='data_practice.lua.tpl' type='s'>
+            <dict data_key='data_practice_basic' sheet='practice_basic' begin_row='3'></dict>
+        </export>
+        <export tpl='config_tryrefine.lua.tpl' type='c'>
+            <dict data_key='config_TryRefine' sheet='practice_basic' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Z_资源产量进度条.xls'>
+        <export tpl='configProgressBar.lua.tpl' type='c'>
+            <dict data_key='all_data_single_base' sheet='single' begin_row='3'></dict>
+            <dict data_key='all_data_general_base' sheet='general' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='P_排行榜_rank.xlsx'>
+        <export tpl='data_rank.lua.tpl' type='s'>
+            <dict data_key='rank_data' sheet='rank' begin_row='3'></dict>
+        </export>
+        <export tpl='configRank.lua.tpl' type='c'>
+            <dict data_key='rank_data' sheet='rank' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_武将经验表_date_exp_.xlsx'>
+        <export tpl='data_hero_exp.lua.tpl' type='s'>
+            <dict data_key='exp_data' sheet='data_exp' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='C_成就_achievement.xlsx'>
+        <export tpl='data_achievement.lua.tpl' type='s'>
+            <dict data_key='achieve_all' sheet='achievement' begin_row='3'></dict>
+        </export>
+        <export tpl='data_achievement_pack.lua.tpl' type='s'>
+            <dict data_key='achieve_all' sheet='Season_award' begin_row='3'></dict>
+        </export>
+        <export tpl='configAchievement.lua.tpl' type='c'>
+            <dict data_key='achieve_all' sheet='achievement' begin_row='3'></dict>
+            <dict data_key='Seasonaward' sheet='Season_award' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='T_TIPS提示表.xlsx'>
+        <export tpl='configDescrip.lua.tpl' type='c'>
+            <dict data_key='Prompt_message' sheet='Prompt_message' begin_row='3'></dict>
+            <dict data_key='hero_tips' sheet='hero_tips' begin_row='3'></dict>
+        </export>
+        <export tpl='configReRise.lua.tpl' type='c'>
+            <dict data_key='re_rise' sheet='re_rise' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_夜间模式_新手模式.xlsx'>
+        <export tpl='data_model.lua.tpl' type='s'>
+            <dict data_key='night_data' sheet='夜间' begin_row='3'></dict>
+            <dict data_key='data_new_hand' sheet='season' season_sheet='true' begin_row='3'></dict>
+            <dict data_key='data_login_clean' sheet='账号清理' begin_row='3'></dict>
+        </export>
+        <export tpl='configNight.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='夜间' begin_row='3'></dict>
+        </export>
+        <export tpl='configNewHand.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='season' season_sheet='true' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='Z_账号清理.xlsx'>
+        <export tpl='data_account_clean.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='账号清理' begin_row='3'></dict>
+            <dict data_key='hot_data' sheet='热度配置' begin_row='3'></dict>
+            <dict data_key='pro_data' sheet='豁免配置' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='J_君主_lord.xlsx'>
+        <export tpl='data_lord.lua.tpl' type='s'>
+            <dict data_key='recity' sheet='撤离、再起' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='C_创角流程_creat_role.xlsx'>
+        <export tpl='data_role_model.lua.tpl' type='s'>
+            <dict data_key='data_creat_role' sheet='creat_role' begin_row='3'></dict>
+            <dict data_key='data_creat_regional' sheet='regional_characteristic' begin_row='3'></dict>
+        </export>
+        <export tpl='config_creat_role.lua.tpl' type='c'>
+            <dict data_key='creat_role' sheet='creat_role' begin_row='3'></dict>
+            <dict data_key='creat_speak' sheet='creat_speak' begin_row='3'></dict>
+            <dict data_key='story_int' sheet='story_int' begin_row='3'></dict>
+            <dict data_key='creat_regional' sheet='regional_characteristic' begin_row='3'></dict>
+            <dict data_key='creat_role_icon' sheet='player_image' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='L_聊天系统通知.xlsx'>
+        <export tpl='data_chat_system.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='system_chat' begin_row='3'></dict>
+        </export>
+        <export tpl='data_chat_param.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='chat_param' begin_row='3'></dict>
+        </export>
+        <export tpl='configChatSystem.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='system_chat' begin_row='3'></dict>
+        </export>
+        <export tpl='configChatParam.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='chat_param' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='P_跑马灯.xlsx'>
+        <export tpl='data_broadcast.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='broadcast' begin_row='2'></dict>
+        </export>
+        <export tpl='configBroadcast.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='broadcast' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='D_帝国之路.xlsx'>
+        <export tpl='data_overlord.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='overlord' begin_row='3'></dict>
+            <dict data_key='c_data' sheet='解锁功能应用脚本' begin_row='3'></dict>
+        </export>
+        <export tpl='configOverlord.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='overlord' begin_row='3'></dict>
+            <dict data_key='s_data' sheet='overlord_show' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='G_功能开放表_functionopen.xlsx'>
+        <export tpl='data_open_function.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='data_function_open' begin_row='3'></dict>
+            <dict data_key='f_data' sheet='Function' begin_row='3'></dict>
+        </export>
+        <export tpl='configFunctionOpen.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='data_function_open' begin_row='3'></dict>
+        </export>
+        <export tpl='configFunctionOpenTips.lua.tpl' type='c'>
+            <dict data_key='all_data1' sheet='Function' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='J_剧情对话_plot.xlsx'>
+        <export tpl='configPlotDialogue.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='overlord' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_引导_guide.xlsx'>
+        <export tpl='configGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='novice_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configSkillGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='skill_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configFunctionGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='function_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configRewardGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='guide_reward' begin_row='3'></dict>
+        </export>
+        <export tpl='data_new_hand_reward.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='guide_reward' begin_row='3'></dict>
+        </export>
+        <export tpl='configInvestigateGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='investigate_guide' begin_row='3'></dict>
+        </export>
+      <export tpl='configInvadeGuide.lua.tpl' type='c'>
+        <dict data_key='all_data' sheet='invade_guide' begin_row='3'></dict>
+      </export>
+        <export tpl='configTownGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='town_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configAppointGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='appoint_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configRecruitGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='recruit_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configIncreaseGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='increase_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configConscriptionGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='conscription_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configChapterGuideControl.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='chapter_guide_control' begin_row='3'></dict>
+        </export>
+        <export tpl='configBanditsGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='bandits_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configSundryGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='sundry_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configQuestGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='quest_guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configCommonGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='common' begin_row='3'></dict>
+        </export>
+        <export tpl='data_end_guide.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='end_guide_control' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='y-引导队伍.xlsx'>
+        <export tpl='configGuideArmy.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='army' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='y-引导队伍.xlsx'>
+        <export tpl='configGuideArmyStep.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='step' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='T_同盟配置_alliance.xlsx'>
+        <export tpl='data_league.lua.tpl' type='s'>
+            <dict data_key='basic' sheet='alliance_basic' begin_row='3'></dict>
+            <dict data_key='post' sheet='permissions' begin_row='3'></dict>
+            <dict data_key='common' sheet='common' begin_row='3'></dict>
+            <dict data_key='log' sheet='log' begin_row='3'></dict>
+            <dict data_key='science' sheet='science' begin_row='3'></dict>
+            <dict data_key='founding_name' sheet='founding_name' begin_row='3'></dict>
+            <dict data_key='flag_color' sheet='flag_color' begin_row='3'></dict>
+        </export>
+        <export tpl='configLeague.lua.tpl' type='c'>
+            <dict data_key='basic' sheet='alliance_basic' begin_row='3'></dict>
+            <dict data_key='post' sheet='permissions' begin_row='3'></dict>
+            <dict data_key='log' sheet='log' begin_row='3'></dict>
+            <dict data_key='science' sheet='science' begin_row='3'></dict>
+            <dict data_key='founding_name' sheet='founding_name' begin_row='3'></dict>
+            <dict data_key='flag_color' sheet='flag_color' begin_row='3'></dict>
+            <dict data_key='common' sheet='common' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='J_家族配置_family.xlsx'>
+        <export tpl='data_family.lua.tpl' type='s'>
+            <dict data_key='family_base' sheet='family_base' begin_row='3'></dict>
+            <dict data_key='nation_base' sheet='nation_base' begin_row='3'></dict>
+            <dict data_key='bandit_base' sheet='bandit_base' begin_row='3'></dict>
+            <dict data_key='family_post' sheet='family_permissions' begin_row='3'></dict>
+            <dict data_key='nation_post' sheet='nation_permissions' begin_row='3'></dict>
+            <dict data_key='common' sheet='common' begin_row='3'></dict>
+            <dict data_key='log' sheet='log' begin_row='3'></dict>
+            <dict data_key='science' sheet='science' begin_row='3'></dict>
+            <dict data_key='founding_name' sheet='founding_name' begin_row='3'></dict>
+            <dict data_key='flag_color' sheet='flag_color' begin_row='3'></dict>
+            <dict data_key='family_title' sheet='family_title' begin_row='3'></dict>
+            <dict data_key='bandit_post' sheet='bandit_permissions' begin_row='3'></dict>
+            <dict data_key='bandit_title' sheet='bandit_title' begin_row='3'></dict>
+        </export>
+        <export tpl='configFamily.lua.tpl' type='c'>
+            <dict data_key='family_base' sheet='family_base' begin_row='3'></dict>
+            <dict data_key='nation_base' sheet='nation_base' begin_row='3'></dict>
+            <dict data_key='bandit_base' sheet='bandit_base' begin_row='3'></dict>
+            <dict data_key='family_post' sheet='family_permissions' begin_row='3'></dict>
+            <dict data_key='nation_post' sheet='nation_permissions' begin_row='3'></dict>
+            <dict data_key='bandit_post' sheet='bandit_permissions' begin_row='3'></dict>
+            <dict data_key='limit_show' sheet='limit_show' begin_row='3'></dict>
+            <dict data_key='common' sheet='common' begin_row='3'></dict>
+            <dict data_key='log' sheet='log' begin_row='3'></dict>
+            <dict data_key='science' sheet='science' begin_row='3'></dict>
+            <dict data_key='founding_name' sheet='founding_name' begin_row='3'></dict>
+            <dict data_key='flag_color' sheet='flag_color' begin_row='3'></dict>
+            <dict data_key='family_title' sheet='family_title' begin_row='3'></dict>
+            <dict data_key='bandit_title' sheet='bandit_title' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='S_视野表.xls'>
+        <export tpl='data_view.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='ield_of_vision' begin_row='3'></dict>
+        </export>
+        <export tpl='configHorizon.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='ield_of_vision' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='X_信件系统通知.xlsx'>
+        <export tpl='data_system_mail.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='system_message' begin_row='3'></dict>
+        </export>
+        <export tpl='data_mail_param.lua.tpl' type='s'>
+            <dict data_key='p_data' sheet='mail_param' begin_row='3'></dict>
+        </export>
+        <export tpl='configSystemMail.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='system_message' begin_row='3'></dict>
+            <dict data_key='all_template' sheet='mail_template' begin_row='3'></dict>
+        </export>
+        <export tpl='configMailParam.lua.tpl' type='c'>
+            <dict data_key='p_data' sheet='mail_param' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='H_活动表_partyevent.xlsx'>
+        <export tpl='data_partyevent.lua.tpl' type='s'>
+            <dict data_key='event_data' sheet='activity_season' begin_row='3'></dict>
+            <dict data_key='sign_data' sheet='sigh_in' begin_row='3'></dict>
+            <dict data_key='temp_sign' sheet='temp_sign' begin_row='3'></dict>
+            <dict data_key='c_data' sheet='capture_territory' begin_row='3'></dict>
+            <dict data_key='e_data' sheet='Exploiting_boundary' begin_row='3'></dict>
+            <dict data_key='r_data' sheet='rank_event' begin_row='3'></dict>
+            <dict data_key='bind_phone_reward' sheet='bind_phone' begin_row='2'></dict>
+            <dict data_key='hero_exchange' sheet='hero_exchange' begin_row='3'></dict>
+            <dict data_key='occupy_cell_reward' sheet='personal_capture' begin_row='3'></dict>
+            <dict data_key='invite_friends_data' sheet='Invite_friends' begin_row='2'></dict>
+            <dict data_key='PC_download' sheet='PC_download' begin_row='2'></dict>
+            <dict data_key='uncharted_water' sheet='uncharted_water' begin_row='2'></dict>
+        </export>
+        <export tpl='configActivity.lua.tpl' type='c'>
+            <dict data_key='event_data' sheet='activity_season' begin_row='3'></dict>
+            <dict data_key='sign_data' sheet='sigh_in' begin_row='3'></dict>
+            <dict data_key='capture_territory' sheet='capture_territory' begin_row='3'></dict>
+            <dict data_key='Exploiting_boundary' sheet='Exploiting_boundary' begin_row='3'></dict>
+            <dict data_key='rank_event' sheet='rank_event' begin_row='3'></dict>
+            <dict data_key='bind_phone_reward' sheet='bind_phone' begin_row='2'></dict>
+            <dict data_key='hero_exchange' sheet='hero_exchange' begin_row='3'></dict>
+            <dict data_key='Invite_friends' sheet='Invite_friends' begin_row='2'></dict>
+            <dict data_key='personal_capture' sheet='personal_capture' begin_row='2'></dict>
+			<dict data_key='uncharted_water' sheet='uncharted_water' begin_row='2'></dict>
+        </export>
+    </file>
+
+    <file excle_file='Y_运营活动表_yunyingpartyevent.xlsx'>
+        <export tpl='configWebActivity.lua.tpl' type='c'>
+            <dict data_key='event_data' sheet='activity_season' begin_row='3'></dict>
+            <dict data_key='compensation_data' sheet='818compensation' begin_row='1'></dict>
+            <dict data_key='hero_data' sheet='hero_list' begin_row='1'></dict>
+        </export>
+    </file>
+
+    <file excle_file='Z_战败变强.xlsx'>
+        <export tpl='configElevate.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='collection_rask' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='S_商城表_mall.xls'>
+        <export tpl='data_mall.lua.tpl' type='s'>
+            <dict data_key='data_mall' sheet='data_mall' begin_row='3'></dict>
+            <dict data_key='large_pay' sheet='large_pay' begin_row='3'></dict>
+            <dict data_key='data_recharge' sheet='data_recharge' begin_row='3'></dict>
+            <dict data_key='red_gift' sheet='red_gift' begin_row='3'></dict>
+            <dict data_key='war_order' sheet='sale_battle_pass' begin_row='3'></dict>
+            <dict data_key='spring_festival_recharge' sheet='spring_festival_recharge' begin_row='3'></dict>
+            <dict data_key='gold_sandbox' sheet='gold_sandbox' begin_row='3'></dict>
+            <dict data_key='overload_box' sheet='overload_box' begin_row='3'></dict>
+            <dict data_key='mystery_box' sheet='mystery_box' begin_row='3'></dict>
+        </export>
+        <export tpl='configRecharge.lua.tpl' type='c'>
+            <dict data_key='data_mall_all' sheet='data_mall' begin_row='3'></dict>
+            <dict data_key='large_pay' sheet='large_pay' begin_row='3'></dict>
+            <dict data_key='data_recharge_all' sheet='data_recharge' begin_row='3'></dict>
+            <dict data_key='red_gift_all' sheet='red_gift' begin_row='3'></dict>
+            <dict data_key='sale_pic_all' sheet='sale_pic' begin_row='3'></dict>
+            <dict data_key='war_order' sheet='sale_battle_pass' begin_row='3'></dict>
+            <dict data_key='spring_festival_recharge' sheet='spring_festival_recharge' begin_row='3'></dict>
+            <dict data_key='gold_sandbox' sheet='gold_sandbox' begin_row='3'></dict>
+            <dict data_key='overload_box' sheet='overload_box' begin_row='3'></dict>
+            <dict data_key='mystery_box' sheet='mystery_box' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='Y_音效资源.xlsx'>
+        <export tpl='configSound.lua.tpl' type='c'>
+            <dict data_key='data_sound' sheet='data_sound' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='S_赛季结算_settlement.xlsx'>
+        <export tpl='data_settlement.lua.tpl' type='s'>
+            <dict data_key='data_settlement' sheet='settlement' begin_row='3'></dict>
+            <dict data_key='data_reward' sheet='settlement_reward' begin_row='3'></dict>
+            <dict data_key='data_transfer' sheet='transfer' begin_row='3'></dict>
+        </export>
+        <export tpl='configSettlement.lua.tpl' type='c'>
+            <dict data_key='data_reward' sheet='settlement_reward' begin_row='3'></dict>
+            <dict data_key='data_settlement' sheet='settlement' begin_row='3'></dict>
+            <dict data_key='data_transfer' sheet='transfer' begin_row='3'></dict>
+            <dict data_key='data_condition' sheet='condition' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='S-赛季功能介绍.xlsx'>
+        <export tpl='configSeasonFunction.lua.tpl' type='c'>
+            <dict data_key='data_function' sheet='new_function' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='Z_战役信息.xlsx'>
+        <export tpl='data_campaign.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='campaign_base' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='F_付费活动表_payevent.xlsx'>
+        <export tpl='data_payevent.lua.tpl' type='s'>
+            <dict data_key='event_data' sheet='pay_event' begin_row='3'></dict>
+            <dict data_key='first_data' sheet='first_pay' begin_row='3'></dict>
+            <dict data_key='pdata68' sheet='68_pay' begin_row='3'></dict>
+            <dict data_key='pdata128' sheet='128_pay' begin_row='3'></dict>
+            <dict data_key='lucky_pay_data' sheet='lucky_pay' begin_row='3'></dict>
+            <dict data_key='common' sheet='common' begin_row='3'></dict>
+            <dict data_key='gold_sandbox' sheet='gold_sandbox' begin_row='3'></dict>
+            <dict data_key='overload_box' sheet='overload_box' begin_row='3'></dict>
+            <dict data_key='mystery_box' sheet='mystery_box' begin_row='3'></dict>
+        </export>
+        <export tpl='configRechargeActivity.lua.tpl' type='c'>
+            <dict data_key='pay_event' sheet='pay_event' begin_row='3'></dict>
+            <dict data_key='pdata128' sheet='128_pay' begin_row='3'></dict>
+            <dict data_key='pdata68' sheet='68_pay' begin_row='3'></dict>
+            <dict data_key='first_pay' sheet='first_pay' begin_row='3'></dict>
+            <dict data_key='lucky_pay_data' sheet='lucky_pay' begin_row='3'></dict>
+        </export>
+
+    </file>
+    <file excle_file='J_机器人.xls'>
+        <export tpl='data_robot.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='robot' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_元老院_senate.xlsx'>
+        <export tpl='data_senate.lua.tpl' type='s'>
+            <dict data_key='c_data' sheet='content' begin_row='3'></dict>
+            <dict data_key='a_data' sheet='affixlist' begin_row='3'></dict>
+            <dict data_key='p_data' sheet='equiplist' begin_row='3'></dict>
+            <dict data_key='cc_data' sheet='constant' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_元老院_senate_en.xlsx'>
+        <export tpl='data_senate_en.lua.tpl' type='s'>
+            <dict data_key='c_data' sheet='content' begin_row='3'></dict>
+            <dict data_key='a_data' sheet='affixlist' begin_row='3'></dict>
+            <dict data_key='p_data' sheet='equiplist' begin_row='3'></dict>
+            <dict data_key='cc_data' sheet='constant' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='W_文明学院配置表.xlsx'>
+        <export tpl='data_civilization.lua.tpl' type='s'>
+            <dict data_key='all_type_data' sheet='civilization' begin_row='3'></dict>
+			<dict data_key='mastery_big' sheet='mastery_big' begin_row='3'></dict>
+			<dict data_key='mastery_small' sheet='mastery_small' begin_row='3'></dict>
+        </export>
+        <export tpl='configCivilization.lua.tpl' type='c'>
+            <dict data_key='all_type_data' sheet='civilization' begin_row='3'></dict>
+            <dict data_key='civilization_level_data' sheet='college' begin_row='3'></dict>
+			<dict data_key='mastery_big_data' sheet='mastery_big' begin_row='3'></dict>
+			<dict data_key='mastery_small_data' sheet='mastery_small' begin_row='3'></dict>
+            <dict data_key='city_pic_data' sheet='city_pic' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='L_历程_merit_wall.xlsx'>
+        <export tpl='data_merit_wall.lua.tpl' type='s'>
+            <dict data_key='all_item_data' sheet='merit_wall' begin_row='3'></dict>
+            <dict data_key='all_type_data' sheet='历程任务类型' begin_row='2'></dict>
+        </export>
+        <export tpl='configMeritWall.lua.tpl' type='c'>
+            <dict data_key='all_item_data' sheet='merit_wall' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_玩家数据统计_data_statistics.xlsx'>
+        <export tpl='data_statistics.lua.tpl' type='s'>
+            <dict data_key='all_item_data' sheet='data_statistics' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='B_表情_face.xlsx'>
+        <export tpl='configFace.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='Sheet1' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='R_日志表.xls'>
+        <export tpl='data_flow.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='config' begin_row='2'></dict>
+        </export>
+    </file>
+    <file excle_file='S_沙盘事件播报_sandtable_event.xlsx'>
+        <export tpl='data_sandtable_event.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='sandtable_event' begin_row='3'></dict>
+        </export>
+        <export tpl='configSandtable.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='sandtable_event' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='L_多语言.xlsx'>
+        <export tpl='configLanguage.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='Language_Base' begin_row='3'></dict>
+        </export>
+        <export tpl='data_language.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='Language_Base' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='T_TIPS加载配置.xlsx'>
+        <export tpl='configLoadTips.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='loading_tips' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Z_州.xlsx'>
+        <export tpl='configCountry.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='country' begin_row='3'></dict>
+        </export>
+        <export tpl='data_map_country.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='country' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='J_郡.xlsx'>
+        <export tpl='configProvince.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='province' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='map/官道.xlsx'>
+        <export tpl='configRoad.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='Sheet' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='map/海上官道.xlsx'>
+        <export tpl='configSeaRoad.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='Sheet' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='map/山.xlsx'>
+        <export tpl='configMount.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='山外观样式' begin_row='3'></dict>
+            <dict data_key='size_data' sheet='山尺寸样式' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='map/河流.xlsx'>
+        <export tpl='configWater.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='SuperWater' begin_row='3'></dict>
+            <dict data_key='water_data' sheet='water' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='map/地表.xlsx'>
+        <export tpl='configSurface.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='Sheet' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='map/建筑外观样式.xlsx'>
+        <export tpl='configBuildStyle.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='建筑外观样式' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='map/关卡.xlsx'>
+        <export tpl='configBarrier.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='chapter_connection' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='map/建筑尺寸样式.xlsx'>
+        <export tpl='data_build_size.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='建筑尺寸样式' begin_row='3'></dict>
+        </export>
+        <export tpl='configBuildSize.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='建筑尺寸样式' begin_row='3'></dict>
+        </export>
+    </file>
+
+
+    <file excle_file='D_等级压制表.xlsx'>
+        <export tpl='data_level_under.lua.tpl' type='s'>
+            <dict data_key='all_level_under' sheet='level_under' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='S_拾取事件_loot_event.xlsx'>
+        <export tpl='data_cell_fetch_event.lua.tpl' type='s'>
+            <dict data_key='all_datas1' sheet='Sheet1' begin_row='3'></dict>
+            <dict data_key='all_datas2' sheet='Sheet2' begin_row='3'></dict>
+            <dict data_key='all_datas3' sheet='Sheet3' begin_row='3'></dict>
+            <dict data_key='all_datas4' sheet='Sheet4' begin_row='3'></dict>
+        </export>
+        <export tpl='configCellFetchEvent.lua.tpl' type='c'>
+            <dict data_key='event_data' sheet='Sheet2' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_玩家福利发放表.xlsx'>
+        <export tpl='data_extern_reward.lua.tpl' type='s'>
+            <dict data_key='reward_config' sheet='reward_config' begin_row='3'></dict>
+            <dict data_key='reward_account' sheet='reward_account' begin_row='3'></dict>
+        </export>
+    </file>
+
+
+    <file excle_file='Z_中秋活动配置表_midautumn_festival.xlsx'>
+        <export tpl='configMidAutumn.lua.tpl' type='c'>
+            <dict data_key='daily_quests' sheet='daily_quests' begin_row='3'></dict>
+            <dict data_key='store' sheet='store' begin_row='3'></dict>
+            <dict data_key='progress_reward' sheet='progress_reward' begin_row='3'></dict>
+
+        </export>
+
+        <export tpl='data_mid_autumn_activity.lua.tpl' type='s'>
+            <dict data_key='daily_quests' sheet='daily_quests' begin_row='3'></dict>
+            <dict data_key='store' sheet='store' begin_row='3'></dict>
+            <dict data_key='progress_reward' sheet='progress_reward' begin_row='3'></dict>
+            <dict data_key='activity_info' sheet='activity_info' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='B-部队气泡.xls'>
+        <export tpl='configBubble.lua.tpl' type='c'>
+            <dict data_key='all_datas1' sheet='Bubble' begin_row='3'></dict>
+            <dict data_key='all_datas2' sheet='BubbleText' begin_row='3'></dict>
+            <dict data_key='all_datas3' sheet='BubbleNew' begin_row='3'></dict>
+            <dict data_key='all_datas4' sheet='BubbleNewText' begin_row='3'></dict>
+            <dict data_key='all_datas5' sheet='BubbleGuide' begin_row='3'></dict>
+            <dict data_key='all_datas6' sheet='BubbleGuideText' begin_row='3'></dict>
+            <dict data_key='all_datas7' sheet='Dialogue' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='Z_战术.xlsx'>
+        <export tpl='data_tactic.lua.tpl' type='s'>
+            <dict data_key='all_tactic' sheet='战术' begin_row='3'></dict>
+            <dict data_key='all_master' sheet='老师描述' begin_row='3'></dict>
+            <dict data_key='all_cost' sheet='消耗' begin_row='3'></dict>
+            <dict data_key='common' sheet='通用' begin_row='3'></dict>
+        </export>
+        <export tpl='configTactic.lua.tpl' type='c'>
+            <dict data_key='all_tactic' sheet='战术' begin_row='3'></dict>
+            <dict data_key='all_master' sheet='老师描述' begin_row='3'></dict>
+            <dict data_key='all_cost' sheet='消耗' begin_row='3'></dict>
+            <dict data_key='common' sheet='通用' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='L_落匪配置_bandit.xlsx'>
+        <export tpl='data_xiake_common.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='common' begin_row='3'></dict>
+        </export>
+        <export tpl='data_xiake_rank.lua.tpl' type='s'>
+            <dict data_key='all_rank_data' sheet='rank' begin_row='3'></dict>
+        </export>
+
+        <export tpl='configXiakeCommon.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='common' begin_row='3'></dict>
+        </export>
+        <export tpl='configXiakeIntroduction.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='introduction' begin_row='3'></dict>
+        </export>
+        <export tpl='configXiakeNotice.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='notice' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='J_技能兑换_skill_exchange.xlsx'>
+        <export tpl='configSkillExBasic.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='basic' begin_row='3'></dict>
+        </export>
+        <export tpl='configSkillExHero.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='hero' begin_row='3'></dict>
+        </export>
+        <export tpl='configSkillExCost.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='exchange' begin_row='3'></dict>
+        </export>
+        <export tpl='data_skill_exchange.lua.tpl' type='s'>
+            <dict data_key='all_basic_data' sheet='basic' begin_row='3'></dict>
+            <dict data_key='all_hero_data' sheet='hero' begin_row='3'></dict>
+            <dict data_key='all_exchange_data' sheet='exchange' begin_row='3'></dict>
+        </export>
+    </file>
+
+
+    <file excle_file='Z-阵容.xlsx'>
+        <export tpl='configTopLineup.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='tab' begin_row='3'></dict>
+            <dict data_key='Sheet_data' sheet='Sheet' begin_row='3'></dict>
+            <dict data_key='new_hand_data' sheet='new_hand' begin_row='3'></dict>
+        </export>
+    </file>
+
+
+    <file excle_file='L_练兵_training.xlsx'>
+        <export tpl='data_train.lua.tpl' type='s'>
+            <dict data_key='data_train_basic' sheet='basic' begin_row='3'></dict>
+            <dict data_key='data_train_monster' sheet='monster' begin_row='3'></dict>
+            <dict data_key='data_train_common' sheet='common' begin_row='3'></dict>
+        </export>
+        <export tpl='configTrain.lua.tpl' type='c'>
+            <dict data_key='data_train_basic' sheet='basic' begin_row='3'></dict>
+            <dict data_key='data_train_monster' sheet='monster' begin_row='3'></dict>
+            <dict data_key='data_train_common' sheet='common' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='H-海上贸易表.xlsx'>
+        <export tpl='data_sea_trade.lua.tpl' type='s'>
+            <dict data_key='boat_goods' sheet='boat_goods' begin_row='3'></dict>
+            <dict data_key='boat_shopping' sheet='boat_shopping' begin_row='3'></dict>
+            <dict data_key='boat_show' sheet='boat_show' begin_row='3'></dict>
+            <dict data_key='sail_sequence' sheet='sail_sequence' begin_row='2'></dict>
+            <dict data_key='build_limit' sheet='build_limit' begin_row='3'></dict>
+            <dict data_key='coins_get' sheet='coins_get' begin_row='3'></dict>
+        </export>
+        <export tpl='configSeaTrade.lua.tpl' type='c'>
+            <dict data_key='boat_goods' sheet='boat_goods' begin_row='3'></dict>
+            <dict data_key='boat_shopping' sheet='boat_shopping' begin_row='3'></dict>
+            <dict data_key='boat_show' sheet='boat_show' begin_row='3'></dict>
+            <dict data_key='build_limit' sheet='build_limit' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='H-海贸英雄事件.xlsx'>
+        <export tpl='data_sea_trade_event.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='basic' begin_row='3'></dict>
+            <dict data_key='all_hero' sheet='hero_event' begin_row='3'></dict>
+        </export>
+        <export tpl='configSeaTradeHero.lua.tpl' type='c'>
+            <dict data_key='hero_event' sheet='hero_event' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='B_宝藏_treasure.xls'>
+        <export tpl='configVillagerTreasure.lua.tpl' type='c'>
+            <dict data_key='data_1' sheet='treasure_probability' begin_row='3'></dict>
+        </export>
+        <export tpl='data_queue_treasure.lua.tpl' type='s'>
+            <dict data_key='quality_probability' sheet='quality_probability' begin_row='3'></dict>
+            <dict data_key='treasure_probability' sheet='treasure_probability' begin_row='3'></dict>
+            <dict data_key='constant' sheet='constant' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='S-数数上报需求.xlsx'>
+        <export tpl='data_event_data.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='总表' begin_row='2'></dict>
+            <dict data_key='loadingdata' sheet='loading' begin_row='2'></dict>
+            <dict data_key='logindata' sheet='login' begin_row='2'></dict>
+            <dict data_key='guidedata' sheet='guide' begin_row='2'></dict>
+            <dict data_key='herodata' sheet='hero' begin_row='2'></dict>
+            <dict data_key='paymentdata' sheet='payment' begin_row='2'></dict>
+            <dict data_key='builddata' sheet='build' begin_row='2'></dict>
+            <dict data_key='fightdata' sheet='fight' begin_row='2'></dict>
+            <dict data_key='guilddata' sheet='guild' begin_row='2'></dict>
+            <dict data_key='socialdata' sheet='social' begin_row='2'></dict>
+            <dict data_key='activitydata' sheet='activity' begin_row='2'></dict>
+            <dict data_key='fresh_mapdata' sheet='fresh_map' begin_row='2'></dict>
+            <dict data_key='farmerdata' sheet='farmer' begin_row='2'></dict>
+            <dict data_key='cividata' sheet='civi' begin_row='2'></dict>
+        </export>
+        <export tpl='configEventData.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='总表' begin_row='2'></dict>
+            <dict data_key='cividata' sheet='civi' begin_row='2'></dict>
+            <dict data_key='loadingdata' sheet='loading' begin_row='2'></dict>
+            <dict data_key='logindata' sheet='login' begin_row='2'></dict>
+            <dict data_key='guidedata' sheet='guide' begin_row='2'></dict>
+            <dict data_key='herodata' sheet='hero' begin_row='2'></dict>
+            <dict data_key='paymentdata' sheet='payment' begin_row='2'></dict>
+            <dict data_key='builddata' sheet='build' begin_row='2'></dict>
+            <dict data_key='fightdata' sheet='fight' begin_row='2'></dict>
+            <dict data_key='guilddata' sheet='guild' begin_row='2'></dict>
+            <dict data_key='leaguedata' sheet='league' begin_row='2'></dict>
+            <dict data_key='activitydata' sheet='activity' begin_row='2'></dict>
+            <dict data_key='universitydata' sheet='university' begin_row='2'></dict>
+            <dict data_key='fresh_mapdata' sheet='fresh_map' begin_row='2'></dict>
+            <dict data_key='socialdata' sheet='social' begin_row='2'></dict>
+            <dict data_key='farmerdata' sheet='farmer' begin_row='2'></dict>
+        </export>
+    </file>
+
+    <file excle_file='Z-制作人名单.xlsx'>
+        <export tpl='configProjectPersonnel.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='list' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='W_武将配置表_role_basic_information.xlsx'>
+        <export tpl='data_role_star.lua.tpl' type='s'>
+            <dict data_key='all_data_hero_star' sheet='role_star' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='W-问答.xlsx'>
+        <export tpl='data_question.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='question_bank' begin_row='3'></dict>
+            <dict data_key='all_reward' sheet='question_reward' begin_row='3'></dict>
+        </export>
+        <export tpl='configQA.lua.tpl' type='c'>
+            <dict data_key='data_1' sheet='question_bank' begin_row='3'></dict>
+            <dict data_key='data_2' sheet='question_reward' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='D_大学系统.xlsx'>
+        <export tpl='data_college.lua.tpl' type='s'>
+            <dict data_key='all_level_data' sheet='college_basic' begin_row='3'></dict>
+            <dict data_key='all_quality_data' sheet='college_event' begin_row='3'></dict>
+            <dict data_key='all_sp_data' sheet='special_addition' begin_row='3'></dict>
+            <dict data_key='all_major_data' sheet='important_search' begin_row='3'></dict>
+            <dict data_key='common' sheet='college_constant' begin_row='3'></dict>
+            <dict data_key='all_knowledge_data' sheet='knowledge_add' begin_row='3'></dict>
+        </export>
+        <export tpl='configUniversity.lua.tpl' type='c'>
+            <dict data_key='all_level_data' sheet='college_basic' begin_row='3'></dict>
+            <dict data_key='all_quality_data' sheet='college_event' begin_row='3'></dict>
+            <dict data_key='all_sp_data' sheet='special_addition' begin_row='3'></dict>
+            <dict data_key='all_major_data' sheet='important_search' begin_row='3'></dict>
+            <dict data_key='common' sheet='college_constant' begin_row='3'></dict>
+            <dict data_key='all_knowledge_data' sheet='knowledge_add' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='J-竞技场.xlsx'>
+        <export tpl='configArena.lua.tpl' type='c'>
+            <dict data_key='match_data' sheet='赛事配置' begin_row='3'></dict>
+            <dict data_key='army_data' sheet='部队库' begin_row='3'></dict>
+            <dict data_key='special_team_data' sheet='特殊赛事队伍配置' begin_row='3'></dict>
+            <dict data_key='hero_data' sheet='英雄库' begin_row='3'></dict>
+            <dict data_key='stake_data' sheet='押注' begin_row='3'></dict>
+            <dict data_key='common' sheet='通用' begin_row='3'></dict>
+        </export>
+        <export tpl='data_arena.lua.tpl' type='s'>
+            <dict data_key='guess_contest_data' sheet='赛事配置' begin_row='3'></dict>
+            <dict data_key='army_data' sheet='部队库' begin_row='3'></dict>
+            <dict data_key='skill_exchange_data' sheet='特殊赛事队伍配置' begin_row='3'></dict>
+            <dict data_key='hero_data' sheet='英雄库' begin_row='3'></dict>
+            <dict data_key='stake_data' sheet='押注' begin_row='3'></dict>
+            <dict data_key='common' sheet='通用' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='B_战令_bettle_pass.xlsx'>
+        <export tpl='data_war_order.lua.tpl' type='s'>
+            <dict data_key='all_reward' sheet='battle_pass' begin_row='3'></dict>
+            <dict data_key='all_task' sheet='bettlepas_b' begin_row='3'></dict>
+        </export>
+        <export tpl='configWarOrder.lua.tpl' type='c'>
+            <dict data_key='all_reward' sheet='battle_pass' begin_row='3'></dict>
+            <dict data_key='all_task' sheet='bettlepas_b' begin_row='3'></dict>
+            <dict data_key='all_common' sheet='battle_pass_const' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='T_天文台_video.xlsx'>
+        <export tpl='configObservatory.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='Observatory' begin_row='3'></dict>
+        </export>
+        <export tpl='data_observatory.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='Observatory' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_挖宝_dig_treasure.xlsx'>
+        <export tpl='data_dig_treasure.lua.tpl' type='s'>
+            <dict data_key='data_dig_treasure_basic' sheet='dig_basic' begin_row='3'></dict>
+            <dict data_key='data_dig_treasure_event' sheet='dig_event' begin_row='3'></dict>
+            <dict data_key='data_dig_treasure_const' sheet='dig_const' begin_row='3'></dict>
+            <dict data_key='data_dig_treasure_coin' sheet='coin_cost' begin_row='3'></dict>
+        </export>
+        <export tpl='configDigTreasure.lua.tpl' type='c'>
+            <dict data_key='data_dig_treasure_const' sheet='dig_const' begin_row='3'></dict>
+            <dict data_key='data_dig_treasure_event' sheet='dig_event' begin_row='3'></dict>
+            <dict data_key='data_dig_treasure_coin_cost' sheet='coin_cost' begin_row='3'></dict>
+        </export>
+    </file>
+	
+	<file excle_file='N-内城表现.xlsx'>
+        <export tpl='configCityNPCData.lua.tpl' type='c'>
+            <dict data_key='bubble' sheet='bubble' begin_row='3'></dict>
+			<dict data_key='catch_game' sheet='catch_game' begin_row='3'></dict>
+			<dict data_key='reward' sheet='game_reward' begin_row='3'></dict>
+			<dict data_key='quest_answer' sheet='quest_answer' begin_row='3'></dict>
+			<dict data_key='common' sheet='common' begin_row='3'></dict>
+        </export>
+
+        <export tpl='data_mini_game_city.lua.tpl' type='s'>
+            <dict data_key='game_reward' sheet='game_reward' begin_row='3'></dict>
+            <dict data_key='quest_answer' sheet='quest_answer' begin_row='3'></dict>
+        </export>
+    </file>
+
+    <file excle_file='J-节日活动专用表.xlsx'>
+        <export tpl='data_festive_activity.lua.tpl' type='s'>
+            <dict data_key='activity_list' sheet='main' begin_row='3'></dict>
+            <dict data_key='card_list' sheet='spring_card' begin_row='3'></dict>
+            <dict data_key='spring_ask' sheet='spring_ask' begin_row='3'></dict>
+            <dict data_key='spring_ask_reward' sheet='spring_ask_reward' begin_row='3'></dict>
+            <dict data_key='spring_const' sheet='spring_const' begin_row='2'></dict>
+        </export>
+        <export tpl='configFestiveActivity.lua.tpl' type='c'>
+            <dict data_key='activity_list' sheet='main' begin_row='3'></dict>
+            <dict data_key='banner_list' sheet='banner' begin_row='3'></dict>
+            <dict data_key='spring_ask' sheet='spring_ask' begin_row='3'></dict>
+            <dict data_key='spring_card' sheet='spring_card' begin_row='3'></dict>
+            <dict data_key='spring_ask_reward' sheet='spring_ask_reward' begin_row='3'></dict>
+            <dict data_key='spring_const' sheet='spring_const' begin_row='2'></dict>
+        </export>
+    </file>
+
+    <file excle_file='Y-英雄篇章.xlsx'>
+        <export tpl='data_hero_chapter.lua.tpl' type='s'>
+            <dict data_key='small_hero_chapter_data' sheet='small_hero_chapter' begin_row='3'></dict>
+            <dict data_key='hero_chapter_data' sheet='hero_chapter' begin_row='3'></dict>
+        </export>
+        <export tpl='configHeroChapter.lua.tpl' type='c'>
+            <dict data_key='small_hero_chapter_data' sheet='small_hero_chapter' begin_row='3'></dict>
+            <dict data_key='hero_chapter_data' sheet='hero_chapter' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_元老院主动推送.xlsx'>
+        <export tpl='configSenatePull.lua.tpl' type='c'>
+            <dict data_key='all_pull' sheet='country' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='T-推送系统.xlsx'>
+        <export tpl='data_push_system.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='push' begin_row='3'></dict>
+        </export>
+        <export tpl='configPushSystem.lua.tpl' type='c'>
+            <dict data_key='all_data_push' sheet='push' begin_row='3'></dict>
+            <dict data_key='all_data_on_off' sheet='on_off' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='R_荣耀点_honor.xlsx'>
+        <export tpl='data_glory.lua.tpl' type='s'>
+            <dict data_key='glory_data' sheet='exploit_limit' begin_row='3'></dict>
+        </export>
+    </file>
+  <file excle_file='Y_佣兵团.xlsx'>
+    <export tpl='configMercenaryTask.lua.tpl' type='c'>
+      <dict data_key='all_data' sheet='task' begin_row='3'></dict>
+    </export>
+  </file>
+  <file excle_file='Z_章节剧情.xlsx'>
+    <export tpl='configChapterPlot.lua.tpl' type='c'>
+      <dict data_key='chapter_plot' sheet='chapter_plot' begin_row='3'></dict>
+    </export>
+  </file>
+    <file excle_file='G_国家计策_nation_plan.xlsx'>
+        <export tpl='data_nation_plan.lua.tpl' type='s'>
+            <dict data_key='nation_plan_data' sheet='nation_plan' begin_row='3'></dict>
+        </export>
+        <export tpl='configNationPlan.lua.tpl' type='c'>
+            <dict data_key='nation_plan_data' sheet='nation_plan' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='G-雇佣军Mercenary.xlsx'>
+        <export tpl='data_mercen_camp.lua.tpl' type='s'>
+            <dict data_key='all_base' sheet='Mercenaries' begin_row='3'></dict>
+            <dict data_key='all_camp' sheet='camps' begin_row='3'></dict>
+        </export>
+        <export tpl='configMercenary.lua.tpl' type='c'>
+            <dict data_key='all_base' sheet='Mercenaries' begin_row='3'></dict>
+            <dict data_key='all_camp' sheet='camps' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='T-天气.xlsx'>
+        <export tpl='data_weather.lua.tpl' type='s'>
+            <dict data_key='all_season' sheet='season' begin_row='3'></dict>
+            <dict data_key='all_effect' sheet='weather' begin_row='3'></dict>
+            <dict data_key='all_misc' sheet='config' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Z_战役关卡campaign.xlsx'>
+        <export tpl='data_corps_campaign.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='campaign' begin_row='3'></dict>
+        </export>
+        <export tpl='configMercWar.lua.tpl' type='c'>
+            <dict data_key='campaign' sheet='campaign' begin_row='3'></dict>
+			<dict data_key='campaign_chapter' sheet='campaign_chapter' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='B_蛮族入侵_barbarian.xlsx'>
+        <export tpl='data_corps_manzu.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='barbarian' begin_row='3'></dict>
+        </export>
+        <export tpl='data_corps_weekly_manzu.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='weekly' begin_row='3'></dict>
+        </export>
+		<export tpl='configManZu.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='barbarian' begin_row='3'></dict>
+        </export>
+        <export tpl='configManZuGuide.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='guide' begin_row='3'></dict>
+        </export>
+        <export tpl='configManZuWeekly.lua.tpl' type='c'>
+            <dict data_key='all_data' sheet='weekly' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='X-小游戏黄金矿工.xlsx'>
+        <export tpl='configSmallGameGoldMiner.lua.tpl' type='c'>
+            <dict data_key='minergame_type' sheet='minergame_type' begin_row='3'></dict>
+            <dict data_key='minergame_basic' sheet='minergame_basic' begin_row='3'></dict>
+        </export>
+        <export tpl='data_mini_reward.lua.tpl' type='s'>
+            <dict data_key='dig_reward' sheet='dig_reward' begin_row='3'></dict>
+        </export>
+    </file>
+	<file excle_file='X-小游戏挖矿.xlsx'>
+        <export tpl='configSmallGameMining.lua.tpl' type='c'>
+            <dict data_key='diggame_basic' sheet='diggame_basic' begin_row='3'></dict>
+            <dict data_key='dig_reward' sheet='dig_reward' begin_row='3'></dict>
+            <dict data_key='dig_obstacle' sheet='dig_obstacle' begin_row='3'></dict>
+            <dict data_key='dig_const' sheet='dig_const' begin_row='3'></dict>
+        </export>
+		<export tpl='data_mini_reward.lua.tpl' type='s'>
+            <dict data_key='dig_reward' sheet='dig_reward' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='X-小游戏钓鱼.xlsx'>
+        <export tpl='configSmallGameFishing.lua.tpl' type='c'>
+            <dict data_key='fishgame_basic' sheet='fishgame_basic' begin_row='3'></dict>
+            <dict data_key='fishgame_points' sheet='fishgame_points' begin_row='3'></dict>
+            <dict data_key='fishgame_const' sheet='fishgame_const' begin_row='3'></dict>
+        </export>
+    </file>
+	<file excle_file='X-小游戏射箭.xlsx'>
+        <export tpl='configSmallGameShootGame.lua.tpl' type='c'>
+            <dict data_key='shootgame_basic' sheet='shootgame_basic' begin_row='3'></dict>
+            <dict data_key='shootgame_type' sheet='shootgame_type' begin_row='3'></dict>
+            <dict data_key='shootgame_const' sheet='shootgame_const' begin_row='3'></dict>
+        </export>
+    </file>
+		<file excle_file='X-小游戏伐木.xlsx'>
+        <export tpl='configSmallGameLoggame.lua.tpl' type='c'>
+            <dict data_key='loggame_basic' sheet='loggame_basic' begin_row='3'></dict>
+            <dict data_key='loggame_const' sheet='loggame_const' begin_row='3'></dict>
+        </export>
+    </file>
+	<file excle_file='X-小游戏海洋征途.xlsx'>
+        <export tpl='configSmallGameOceanJourney.lua.tpl' type='c'>
+            <dict data_key='level_data' sheet='level_data' begin_row='3'></dict>
+        </export>
+    </file>
+	<file excle_file='X-小游戏见缝插针.xlsx'>
+        <export tpl='configSmallGameShatterShield.lua.tpl' type='c'>
+            <dict data_key='level_data' sheet='level_data' begin_row='3'></dict>
+        </export>
+    </file>
+	<file excle_file='X-小游戏总表.xlsx'>
+        <export tpl='data_mini_game.lua.tpl' type='s'>
+            <dict data_key='minigame_basic' sheet='minigame_basic' begin_row='3'></dict>
+            <dict data_key='minigame_rank' sheet='minigame_rank' begin_row='3'></dict>
+            <dict data_key='max_reward' sheet='max_reward' begin_row='3'></dict>
+            <dict data_key='rank_reward' sheet='rank_reward' begin_row='3'></dict>
+        </export>
+		<export tpl='configSmallSummaryTable.lua.tpl' type='c'>
+            <dict data_key='minigame_basic' sheet='minigame_basic' begin_row='3'></dict>
+			<dict data_key='rank_reward' sheet='rank_reward' begin_row='3'></dict>
+        </export>
+    </file>
+
+	<file excle_file='D_佣兵like掉落_drop.xlsx'>
+        <export tpl='data_corps_drop.lua.tpl' type='s'>
+            <dict data_key='all_barrier' sheet='drop' begin_row='3'></dict>
+            <dict data_key='all_drop' sheet='drop_library' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_佣兵团技能.xlsx'>
+        <export tpl='configHireSkill.lua.tpl' type='c'>
+            <dict data_key='data1' sheet='skill' begin_row='3'></dict>
+            <dict data_key='data2' sheet='skillShow' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_佣兵团角色.xlsx'>
+        <export tpl='configHireObj.lua.tpl' type='c'>
+            <dict data_key='data1' sheet='hero' begin_row='3'></dict>
+            <dict data_key='data2' sheet='heroLevel' begin_row='3'></dict>
+            <dict data_key='data3' sheet='monster' begin_row='3'></dict>
+            <dict data_key='data4' sheet='monsterLevel' begin_row='3'></dict>
+            <dict data_key='data5' sheet='const' begin_row='3'></dict>
+            <dict data_key='data6' sheet='item' begin_row='3'></dict>
+            <dict data_key='data7' sheet='build' begin_row='3'></dict>
+            <dict data_key='data8' sheet='npc' begin_row='3'></dict>
+            <dict data_key='data9' sheet='sceneMonster' begin_row='3'></dict>
+        </export>
+        <export tpl='data_corps_monster_type.lua.tpl' type='s'>
+            <dict data_key='all_lv' sheet='monsterLevel' begin_row='3'></dict>
+            <dict data_key='all_monster' sheet='monster' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_佣兵团buff.xlsx'>
+        <export tpl='configHireBuff.lua.tpl' type='c'>
+            <dict data_key='data1' sheet='buff' begin_row='3'></dict>
+            <dict data_key='data2' sheet='aura' begin_row='3'></dict>
+            <dict data_key='data3' sheet='trap' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='Y_佣兵团剧情.xlsx'>
+        <export tpl='configHireGuide.lua.tpl' type='c'>
+            <dict data_key='data1' sheet='so' begin_row='3'></dict>
+            <dict data_key='data2' sheet='build' begin_row='3'></dict>
+            <dict data_key='data3' sheet='soObj' begin_row='3'></dict>
+            <dict data_key='data4' sheet='connection' begin_row='3'></dict>
+            <dict data_key='data5' sheet='drop' begin_row='3'></dict>
+        </export>
+    </file>
+  <file excle_file='Y_佣兵团温泉关剧情.xlsx'>
+    <export tpl='configHireBattleGuide.lua.tpl' type='c'>
+      <dict data_key='data1' sheet='soBattle' begin_row='3'></dict>
+      <dict data_key='data2' sheet='soObj' begin_row='3'></dict>
+      <dict data_key='data3' sheet='soHp' begin_row='3'></dict>
+    </export>
+  </file>
+    <file excle_file='Y_佣兵团关卡.xlsx'>
+        <export tpl='configHireLevel.lua.tpl' type='c'>
+            <dict data_key='data1' sheet='level' begin_row='3'></dict>
+            <dict data_key='data2' sheet='monsterGroup' begin_row='3'></dict>
+            <dict data_key='data3' sheet='upInfo' begin_row='3'></dict>
+            <dict data_key='data4' sheet='evtBox' begin_row='3'></dict>
+            <dict data_key='data5' sheet='task' begin_row='3'></dict>
+            <dict data_key='data6' sheet='guide' begin_row='3'></dict>
+        </export>
+        <export tpl='data_corps_monster.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='monsterGroup' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='C_场景.xlsx'>
+        <export tpl='configScene.lua.tpl' type='c'>
+            <dict data_key='data' sheet='scene' begin_row='3'></dict>
+        </export>
+    </file>
+	<file excle_file='Z-装扮.xlsx'>
+        <export tpl='configAdorn.lua.tpl' type='c'>
+            <dict data_key='dress_type_data' sheet='dress_type' begin_row='3'></dict>
+            <dict data_key='dress_data' sheet='dress' begin_row='3'></dict>
+        </export>
+
+        <export tpl='data_skin.lua.tpl' type='s'>
+            <dict data_key='dress_data' sheet='dress' begin_row='3'></dict>
+            <dict data_key='free_dress' sheet='free_dress' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='W_外部城池免战_outside_city_protect.xlsx'>
+        <export tpl='data_building_protected.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='protect_list' begin_row='3'></dict>
+        </export>
+    </file>
+    <file excle_file='D_队伍指令.xlsx'>
+        <export tpl='data_army_action.lua.tpl' type='s'>
+            <dict data_key='all_data' sheet='action' begin_row='3'></dict>
+        </export>
+      <export tpl='configActionEffect.lua.tpl' type='c'>
+        <dict data_key='all_data' sheet='action_effect' begin_row='3'></dict>
+      </export>
+    </file>
+	<file excle_file='Z_战斗暗改.xlsx'>
+        <export tpl='data_skill_dark.lua.tpl' type='s'>
+            <dict data_key='all_skill_dark' sheet='skill' begin_row='3'></dict>
+			<dict data_key='all_hero_dark' sheet='hero' begin_row='3'></dict>
+        </export>
+    </file>
+    	<file excle_file='P_拍卖_auction.xlsx'>
+        <export tpl='data_auction.lua.tpl' type='s'>
+            <dict data_key='drop'         sheet='drop' begin_row='3'></dict>
+            <dict data_key='drop_library' sheet='drop_library' begin_row='3'></dict>
+            <dict data_key='common'       sheet='common' begin_row='3'></dict>
+        </export>
+		<export tpl='configAuction.lua.tpl' type='c'>
+            <dict data_key='drop'         sheet='drop' begin_row='3'></dict>
+            <dict data_key='drop_library' sheet='drop_library' begin_row='3'></dict>
+            <dict data_key='common'       sheet='common' begin_row='3'></dict>
+        </export>
+    </file>
+	<file excle_file='D_地块难度测试_land_test.xlsx'>
+        <export tpl='data_land_test.lua.tpl' type='s'>
+            <dict data_key='all_land_defense' sheet='地块守军' begin_row='3'></dict>
+			<dict data_key='all_city_defense' sheet='城防守军' begin_row='3'></dict>
+			<dict data_key='all_chaotic_army' sheet='乱军' begin_row='3'></dict>
+        </export>
+    </file>
+</root>

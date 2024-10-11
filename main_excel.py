@@ -2,7 +2,6 @@
 # 需要安装的第三方库:
 # pip3 install xlrd==1.2.0
 # pip3 install tenjin
-# 修改
 
 import sys
 import os

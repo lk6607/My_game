@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+<!-- 下面是哪些Excel文件的sheet里的列需要翻译 -->
+<file excle_file='C常量表.xls' type='lang_src'>
+    <dict sheet='configConstMisc' cols='describe'></dict>
+    <dict sheet='configConstBattle' cols='describe'></dict>
+</file>
+<!-- <file excle_file='Z装备物品表.xls' type='lang_src'>
+    <dict sheet='configItem' cols='name'></dict>
+    <dict sheet='configEquip' cols='name'></dict>
+</file> -->
+
+
+
+<!-- 下面是要生成的翻译配置文件 -->
+
+<file excle_file='翻译-繁体.xlsx' type='translation_src'>
+    
+</file>
+<file excle_file='翻译-英文.xlsx' type='translation_src'>
+    
+</file>
+<file excle_file='翻译-韩文.xlsm' type='translation_src'>
+    
+</file>
+
+</root>
+
+
